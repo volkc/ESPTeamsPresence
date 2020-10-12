@@ -16,12 +16,7 @@
 boolean requestJsonApi(JsonDocument& doc, String url, String payload = "", size_t capacity = 0, String type = "POST", boolean sendAuth = false) {
 	// WiFiClient
 	WiFiClientSecure *client = new WiFiClientSecure;
-
-	if (url.indexOf("graph.microsoft.com") > -1) {
-		client->setCACert(rootCACertificateGraph);
-	} else {
-		client->setCACert(rootCACertificateLogin);
-	}
+	client->setCACert(digicertRootCA02);
 
 	// HTTPClient
 	HTTPClient https;
